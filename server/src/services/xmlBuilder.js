@@ -1,4 +1,8 @@
 import { escapeXml } from '../utils/escapeXml.js';
+import {
+  infoWorksheetXml,
+  mappingWorksheetXml,
+} from '../xml/staticWorksheets.js';
 
 const COLS = 16;
 const NS = 'urn:schemas-microsoft-com:office:spreadsheet';
@@ -49,6 +53,8 @@ ${dataRows.join('\n')}
  <Worksheet ss:Name="Data">
 ${table}
  </Worksheet>
+${infoWorksheetXml()}
+${mappingWorksheetXml()}
 </Workbook>`;
 }
 
