@@ -25,18 +25,9 @@ export function buildTariffPayload(parsed, params) {
   const overrides = params.overrides ?? {};
   const defaults = { ...TMS_DEFAULTS, ...overrides };
 
-  const routeList =
-    params.routes?.length > 0
-      ? params.routes
-      : defaults.rateCode
-        ? [defaults.rateCode]
-        : [];
-  const chargeList =
-    params.chargeIds?.length > 0
-      ? params.chargeIds
-      : defaults.chargeId
-        ? [defaults.chargeId]
-        : [];
+  /** Rutas y charges vienen siempre del request (validateGenerateBody + parseGenerateBody). */
+  const routeList = params.routes?.length ? [...params.routes] : [];
+  const chargeList = params.chargeIds?.length ? [...params.chargeIds] : [];
 
   if (routeList.length === 0) {
     throw new Error('Falta al menos un RateCode (ruta).');

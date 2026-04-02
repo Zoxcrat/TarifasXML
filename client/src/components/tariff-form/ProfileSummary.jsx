@@ -21,6 +21,11 @@ export function ProfileSummary({ serviceProfile, tmsColumns }) {
         <strong>RateRangeCode</strong> {tmsColumns.rateRangeCode} ·{' '}
         <strong>Range base charge</strong> {tmsColumns.rangeBaseCharge}
       </p>
+      <p className="profile-summary-hint">
+        En el XML, la columna <strong>RateCode</strong> es la ruta (ej. AR_SIASA_ALLARG).
+        <strong> RateRangeCode</strong> (ej. AR50) es otro dato: código de tramo por km, no la
+        ruta.
+      </p>
     </div>
   )
 }

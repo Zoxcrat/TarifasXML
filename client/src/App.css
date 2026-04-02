@@ -105,6 +105,14 @@
   word-break: break-word;
 }
 
+.profile-summary-hint {
+  margin: 0.65rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  opacity: 0.88;
+  font-style: italic;
+}
+
 .file-hint {
   font-size: 0.8rem;
   opacity: 0.85;
