@@ -1,0 +1,34 @@
+en el sistema TMS que usa mi empresa, para logistica y distribucion de pedidos, a traves de varios pedidos se generan "cargas" que son los camiones que 
+distribuyen a todo el pais. Esos camiones tienen una distancia, tipo de camion, transportista, etc.
+Tambien tienen un costo de transporte, que se le dice tarifa. Estas tarifas se arman de la siguiente manera: 
+La tarifa(numero), Id de servicio(el tipo de operacion que es), El ID de ruta(que contiene las zonas y localidades), 
+y el tipo de equipamiento(es el tipo de camion). Cada combinacion de estas condiciones es una "tasa", y cada tasa tiene 
+precio por rangos de a 50km hasta los 3000. 
+
+aca en argentina, cada 1/2 meses se actualizan dichas tarifas y precios. Nosotros actualmente lo hacemos a traves de un
+ XML (se puede ver el formato xml) subiendolo al sistema. Este XML lo abrimos como excel y lo rellenamos como filas y columnas.
+por ejemplo una tasa es un total de 60 registros. Un ejemplo del XML lo tenes en el archivo Ejemplo XML.xml y se ve en excel como te muestro en xml en excel.png
+
+cada vez que hay algun aumento de precio en las tarifas nos pasan este excel como el que te muestro en tarifas.png. 
+(ya sabemos previamente para que servicio, tarifa, ruta es) nos pasan para cada tipo de camion el precio por cada rango 
+de a 50 km. Nosotros a partir de esos precios debemos llenar manualmente ese excel/xml que te mostre. 
+
+
+
+Transportistas: CH Robinson,ID Logistics,Novis,Zarcam
+
+Servicios: Distribucion Semillas, Distribucion Agroquimicos
+
+Tariff ID: 17556, Service ID: TL_RC. charge ID: EQ_TDISTS. Routes: AR_ALLARG-ALLROJAS_RC,AR_ALLROJAS-ALLARG_RC,AR_1226-ALLARG_RC,AR_6773-ALLARG_RC .Este aplica a CH Robinson y Distribucion Semillas. 
+
+Tariff ID: 17557, Service ID: TL_RC. charge ID: EQ_TDISTS. Routes: AR_ALLARG-ALLROJAS_RC,AR_ALLROJAS-ALLARG_RC,AR_1226-ALLARG_RC,AR_6773-ALLARG_RC  Este aplica a ID Logistics y Distribucion Semillas.
+
+Tariff ID: 32464, Service ID: TL_CP. charge ID: EQ_LDISTC1 y EQ_LDISTC2. Routes: AR_SIASA_ALLARG. Este aplica a Zarcam y Distribucion Agroquimicos.
+
+Tariff ID: 32465, Service ID: TL_CP. charge ID: EQ_LDISTC1 y EQ_LDISTC2. Routes: AR_SIASA_ALLARG. Este aplica a CH Robinson y Distribucion Agroquimicos.
+
+Tariff ID: 47608, Service ID: TL_CP. charge ID: EQ_LDISTC1 y EQ_LDISTC2. Routes: AR_SIASA_ALLARG .Este aplica a Novis y Distribucion Agroquimicos.
+
+
+
+
