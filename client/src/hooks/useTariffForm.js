@@ -81,6 +81,7 @@ export function useTariffForm() {
         tmsColumns,
         effectiveIso,
         expirationIso,
+        carrierName: carrier?.name ?? '',
       })
 
       setLoading(true)
@@ -96,6 +97,7 @@ export function useTariffForm() {
     [
       file,
       carrierId,
+      carrier,
       serviceProfile,
       effectiveIso,
       expirationIso,

@@ -84,6 +84,10 @@ export function parseGenerateBody(body) {
     serviceId: body.serviceId.trim(),
     routes,
     chargeIds,
+    carrierName:
+      body.carrierName !== undefined && body.carrierName !== null
+        ? String(body.carrierName).trim()
+        : '',
     overrides,
   };
 }

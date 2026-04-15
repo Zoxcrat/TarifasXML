@@ -9,11 +9,15 @@ export function buildGenerateFormData({
   tmsColumns,
   effectiveIso,
   expirationIso,
+  carrierName,
 }) {
   const fd = new FormData()
   fd.append('file', file)
   fd.append('tariffId', serviceProfile.tariffId)
   fd.append('serviceId', serviceProfile.serviceId)
+  if (carrierName != null && String(carrierName).trim() !== '') {
+    fd.append('carrierName', String(carrierName).trim())
+  }
   fd.append('routes', serviceProfile.routes.join(','))
   fd.append('chargeIds', serviceProfile.chargeIds.join(','))
   fd.append('effectiveDate', isoDateToTms(effectiveIso))
