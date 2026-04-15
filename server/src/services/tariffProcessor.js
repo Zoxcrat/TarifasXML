@@ -6,6 +6,7 @@ import { TMS_DEFAULTS } from '../constants.js';
  * @property {{ rangeTo: number, ratePerUnit: number }[]} bands
  * @property {string} rateCode
  * @property {string} chargeId
+ * @property {string} [minimumCharge] Si está definido (p. ej. TL_F2P), reemplaza el mínimo global en la fila H.
  */
 
 /**

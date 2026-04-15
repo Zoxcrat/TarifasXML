@@ -3,12 +3,24 @@
  * Ampliar este archivo cuando agreguen transportistas o servicios.
  */
 
+import { ROUTES_COSECHA } from './cosechaRoutes.js'
+
 const ROUTES_TL_RC = [
   'AR_ALLARG-ALLROJAS_RC',
   'AR_ALLROJAS-ALLARG_RC',
   'AR_1226-ALLARG_RC',
   'AR_6773-ALLARG_RC',
 ]
+
+/** Valores TMS por defecto para TL_F2P (Cosecha); el mínimo efectivo sale del Excel por RateCode. */
+const TMS_COSECHA = {
+  currency: 'ARS',
+  baseCharge: '0',
+  minimumCharge: '0',
+  maximumCharge: '9999999999999.99',
+  rateRangeCode: 'UNPU',
+  rangeBaseCharge: '0',
+}
 
 /**
  * Columnas del XML que no vienen del Excel (moneda, Base/Min/Max charge,
@@ -77,6 +89,15 @@ export const CARRIERS = [
         chargeIds: ['EQ_LDISTC1', 'EQ_LDISTC2'],
         routes: ['AR_SIASA_ALLARG'],
       },
+      {
+        id: 'cosecha',
+        name: 'Cosecha',
+        tariffId: '17556',
+        serviceId: 'TL_F2P',
+        chargeIds: ['EQ_WGT'],
+        routes: [...ROUTES_COSECHA],
+        tmsColumns: { ...TMS_COSECHA },
+      },
     ],
   },
   {
@@ -90,6 +111,30 @@ export const CARRIERS = [
         serviceId: 'TL_RC',
         chargeIds: ['EQ_TDISTS'],
         routes: [...ROUTES_TL_RC],
+      },
+      {
+        id: 'cosecha',
+        name: 'Cosecha',
+        tariffId: '17557',
+        serviceId: 'TL_F2P',
+        chargeIds: ['EQ_WGT'],
+        routes: [...ROUTES_COSECHA],
+        tmsColumns: { ...TMS_COSECHA },
+      },
+    ],
+  },
+  {
+    id: 'avancargo',
+    name: 'Avancargo',
+    services: [
+      {
+        id: 'cosecha',
+        name: 'Cosecha',
+        tariffId: '45061',
+        serviceId: 'TL_F2P',
+        chargeIds: ['EQ_WGT'],
+        routes: [...ROUTES_COSECHA],
+        tmsColumns: { ...TMS_COSECHA },
       },
     ],
   },
@@ -118,6 +163,15 @@ export const CARRIERS = [
         serviceId: 'TL_CP',
         chargeIds: ['EQ_LDISTC1', 'EQ_LDISTC2'],
         routes: ['AR_SIASA_ALLARG'],
+      },
+      {
+        id: 'cosecha',
+        name: 'Cosecha',
+        tariffId: '47608',
+        serviceId: 'TL_F2P',
+        chargeIds: ['EQ_WGT'],
+        routes: [...ROUTES_COSECHA],
+        tmsColumns: { ...TMS_COSECHA },
       },
     ],
   },

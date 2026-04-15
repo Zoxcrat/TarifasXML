@@ -28,7 +28,8 @@ export function buildSpreadsheetXml(payload) {
         rateCode,
         chargeId,
         first.rangeTo,
-        first.ratePerUnit
+        first.ratePerUnit,
+        block.minimumCharge
       )
     );
 
@@ -89,8 +90,13 @@ function headerLineXml(
   rateCode,
   chargeId,
   rangeTo,
-  ratePerUnit
+  ratePerUnit,
+  minimumChargeOverride
 ) {
+  const minCharge =
+    minimumChargeOverride !== undefined && minimumChargeOverride !== null
+      ? String(minimumChargeOverride)
+      : payload.minimumCharge;
   const cells = [
     stringCell('H'),
     stringCell(payload.tariffId),
@@ -99,7 +105,7 @@ function headerLineXml(
     stringCell(chargeId),
     stringCell(equipmentType),
     stringCell(payload.baseCharge),
-    stringCell(payload.minimumCharge),
+    stringCell(minCharge),
     stringCell(payload.maximumCharge),
     stringCell(payload.currency),
     stringCell(payload.effectiveDate),
